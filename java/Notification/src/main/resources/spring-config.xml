@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean  name="basicNotificationChecker" class="com.bajaj.BasicNotificationChecker"></bean>
+<!--    <bean name="advancedNotificationChecker" class = "com.bajaj.AdvancedNotificationChecker" scope="prototype"></bean>-->
+    <bean name="advancedNotificationChecker" class = "com.bajaj.AdvancedNotificationChecker"></bean>
+
+
+    <bean name="notificationClient" class="com.bajaj.NotificationClient">
+<!--        sending through constructor -->
+<!--        <constructor-arg ref="basicNotificationChecker"></constructor-arg>-->
+    <property name="notificationChecker" ref="basicNotificationChecker"></property>
+    </bean>
+
+</beans>
